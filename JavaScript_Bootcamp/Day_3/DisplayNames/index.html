@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Names Assignment</title>
+</head>
+<body>
+
+    <h1>Indian Names</h1>
+
+    <h2>
+    <div id="nameDisplay"></div>
+    </h2>
+    <br>
+    
+    <button onclick="showPrevious()">Previous</button>
+    <button onclick="showNext()">Next</button>
+
+    <script>
+        const names = ["Aarav", "Sanya", "Vikram", "Neha", "Rohan", "Priya", "Amit", "Meera", "Rajiv", "Ananya"];
+        let currentIndex = 0;
+        const nameDisplayElement = document.getElementById("nameDisplay");
+
+        // Function to display the current name
+        function displayCurrentName() {
+            nameDisplayElement.textContent = names[currentIndex];
+        }
+
+        // Function to show the next name
+        function showNext() {
+            currentIndex = (currentIndex + 1) % names.length;
+            displayCurrentName();
+        }
+
+        // Function to show the previous name
+        function showPrevious() {
+            currentIndex = (currentIndex - 1 + names.length) % names.length;
+            displayCurrentName();
+        }
+
+        // Initial display
+        displayCurrentName();
+    </script>
+
+</body>
+</html>
